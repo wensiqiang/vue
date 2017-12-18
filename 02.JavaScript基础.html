@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>02.JavaScript基础</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>JavaScript基础笔记</h1>
+<hr />
+<blockquote>
+<h3>WebStorm快捷键</h3>
+</blockquote>
+<ul>
+<li>ctrl+Y ==&gt; Delete Line</li>
+<li>ctrl+shift+向下箭头 ==&gt; Move Line Down</li>
+<li>ctrl+alt+L ==&gt; Reformat Code</li>
+<li>shift+F6 ==&gt; Refactor--Rename</li>
+</ul>
+<blockquote>
+<h3>什么是javascript</h3>
+</blockquote>
+<ul>
+<li>javascript是一种运行在<b>客户端</b>的<b>脚本语言</b></li>
+<li>javascript由三部分组成：ECMAScript(定义了javascript的语法规范；ECM3，没有ECM4)、BOM(一套操作浏览器功能的API)、DOM(一套操作页面元素的API)</li>
+<li>API(Application Programming Interface):应用程序编程接口</li>
+</ul>
+<blockquote>
+<h3>关于script标签</h3>
+</blockquote>
+<ul>
+<li>如果script标签指定了src属性，说明是想要引入一个js文件，这个时候不能继续在script标签中写JS代码，即便写了，也不会执行。</li>
+</ul>
+<blockquote>
+<h3>JS里常见的输入输出语句</h3>
+</blockquote>
+<ul>
+<li>alert(&quot;Hello World&quot;); <font color="gray">//弹出一个提示框</font></li>
+<li>prompt(&quot;请输入您的银行卡密码&quot;); <font color="gray">//弹出一个文本输入框</font></li>
+<li>confirm(&quot;确定要删除吗？&quot;); <font color="gray">//弹出一个确认框</font></li>
+<li>document.write(&quot;Hello World&quot;); <font color="gray">//在界面上写入内容</font></li>
+<li>console.log(&quot;Hello World&quot;); <font color="gray">//以标签的形式打印一个对象,在控制台输入日志</font></li>
+<li>console.dir(); <font color="gray">//以对象的形式打印一个对象</font></li>
+</ul>
+<blockquote>
+<h3>注释</h3>
+</blockquote>
+<ul>
+<li>
+<p>不被程序执行的代码。用于程序员标记代码，在后期的修改，以及他人的学习时有所帮助，在JS中，分为单行注释、多行注释以及文档注释</p>
+<pre><code>//这是单行注释，只能注释一行
+
+/*
+这是多行注释，不能嵌套
+*/      
+
+//文档注释在JS中通常用于对函数进行说明
+/**
+* 计算圆的面积
+* @param r{number} 圆的半径
+* @returns {number} 根据圆的半径计算出来的面积
+*/
+function getArea(r) {
+return Math.PI * r * r;
+}
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>转义字符</h3>
+</blockquote>
+<ul>
+<li>\' <font color="gray">//单引号</font></li>
+<li>\&quot; <font color="gray">//双引号</font></li>
+<li>\&amp; <font color="gray">//和号</font></li>
+<li>\\ <font color="gray">//反斜杠</font></li>
+<li>\n <font color="gray">//换行符</font></li>
+<li>\r <font color="gray">//回车符</font></li>
+<li>\t <font color="gray">//制表符</font></li>
+<li>\b <font color="gray">//退格符</font></li>
+<li>\f <font color="gray">//换页符</font></li>
+</ul>
+<blockquote>
+<h3>typeof关键字用法</h3>
+</blockquote>
+<ul>
+<li>typeof 返回值有六种可能： &quot;number,&quot; &quot;string,&quot; &quot;boolean,&quot; &quot;object,&quot; &quot;function,&quot; 和 &quot;undefined.&quot;</li>
+<li>typeof获取到的数据的类型，都是<strong>字符串类型</strong>的数据</li>
+<li>
+<p>使用typeof获取复杂类型数据的类型的时候，除了function 其他的数据类型获取到的全都是object</p>
+<pre><code>typeof name;
+typeof(name);
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>查看一个对象的类型</h3>
+</blockquote>
+<ul>
+<li>typeof 只能判断基本数据类型，如果用于复杂数据类型，它的返回值就是object</li>
+<li>
+<p><b>instanceof</b> 判断对象的数据类型</p>
+<pre><code>console.log(arr instanceof Array);  //true 只用于判断
+</code></pre>
+
+</li>
+<li>
+<p><b>constructor.name</b> 可以获取到对象的具体类型</p>
+<pre><code>console.log(arr.constructor.name);  //Array
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>变量的声明与赋值</h3>
+</blockquote>
+<ul>
+<li>变量可以同时声明并赋值</li>
+<li>变量可以先声明，再赋值</li>
+<li>变量可以不声明直接赋值</li>
+<li>变量可以既不声明也不赋值</li>
+<li>同时声明多个变量</li>
+</ul>
+<blockquote>
+<h3>变量的命名规则与规范</h3>
+</blockquote>
+<ul>
+<li>变量名的取值范围是<font color="red">0~9,a~z,A~Z,_,$</font></li>
+<li>变量名不能以数字打头</li>
+<li>变量名对大小写敏感</li>
+<li>变量名不能是<b>关键字</b>或<b>保留字</b></li>
+<li>命名要有意义</li>
+<li>遵守驼峰命名法，首字母小写，后面单词的首字母要大写</li>
+</ul>
+<blockquote>
+<h3>ECMAScript 关键字</h3>
+</blockquote>
+<ul>
+<li>break、case、catch、continue、default、delete、do、else、finally、for、function、if、in、instanceof、new、return、switch、this、throw、try、typeof、var、void、while、with</li>
+<li>ECMA-262 定义了 ECMAScript 支持的一套关键字（keyword）。这些关键字标识了 ECMAScript 语句的开头 和/或 结尾。根据规定，关键字是保留的，不能用作变量名或函数名。</li>
+</ul>
+<blockquote>
+<h3>ECMAScript 保留字</h3>
+</blockquote>
+<ul>
+<li>abstract、boolean、byte、char、class、const、debugger、double、enum、export、extends、final、float、goto、implements、import、int、interface、long、native、package、private、protected、public、short、static、super、synchronized、throws、transient、volatile</li>
+<li>ECMA-262 定义了 ECMAScript 支持的一套保留字（reserved word）。保留字在某种意思上是为将来的关键字而保留的单词。因此保留字不能被用作变量名或函数名。</li>
+</ul>
+<blockquote>
+<h3>两个变量相加</h3>
+</blockquote>
+<ul>
+<li>两个都是number类型，那么加号的作用是相加</li>
+<li>两个都是string类型，那么加号的作用是连接</li>
+<li>一个是number类型，另一个是string类型，那么加号的作用是连接</li>
+</ul>
+<blockquote>
+<h3>prompt()接收到的数据类型</h3>
+</blockquote>
+<ul>
+<li>prompt()接收到的内容是string类型</li>
+</ul>
+<blockquote>
+<h3>数据类型Number</h3>
+</blockquote>
+<ul>
+<li>有一种特殊的数据：NaN(not a number)</li>
+<li>NaN:是计算发生错误时的一种状态，也是number类型的数据</li>
+<li>判断是否是NaN的一个关键字:isNaN(is not a number)是非数字</li>
+<li><b>如果是一个正常的数字，isNaN返回的值是false</b></li>
+<li>如果结果是NaN，那么isNaN的结果是true</li>
+<li>如果结果是一个字符串，那么isNaN的结果是true</li>
+<li>NaN不等于NaN</li>
+</ul>
+<blockquote>
+<h3>数值范围</h3>
+</blockquote>
+<pre><code>Number.MIN_VALUE  :5e-324 //js中所能表示的最小正值
+Number.MAX_VALUE  :1.7976931348623157e+308
+Infinity   :正无穷
+-Infinity  ：负无穷
+</code></pre>
+
+<blockquote>
+<h3>浮点数的注意事项</h3>
+</blockquote>
+<ul>
+<li>
+<p>浮点数在运算的时候会出现精度丢失的问题，因此在做比较运算的时候，尽量不要用小数进行比较。</p>
+<pre><code>var a = 0.1;
+var b = 0.2;
+console.log((a + b) == 0.3); //false
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>boolean类型</h3>
+</blockquote>
+<ul>
+<li>boolean类型只有两个字面量，true和false，区分大小写。</li>
+<li>
+<p>所有类型的值都可以转化成true或者false</p>
+<pre><code>NaN、&quot;&quot;、undefined、null、false、0  这6个值可以转换成false，其余的都是true。
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>undefined类型与null类型</h3>
+</blockquote>
+<ul>
+<li>如果声明了一个变量，但是没有对它进行赋值，那么它的默认值就是undefined</li>
+<li>
+<p>如果一个函数没有返回值，那么它的默认返回值就是undefined</p>
+<pre><code>undefined表示一个声明了没有赋值的变量
+null表示一个空的对象。
+console.log(typeof null); //object.这是一个 错误/Bug ，但是也没有修复
+
+undefined派生自null。
+undefined == null  --&gt;true
+undefined === null --&gt;false
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>类型转换</h3>
+</blockquote>
+<ul>
+<li>在控制台中，字符串的颜色是黑色的，<font color="blue">数值类型是蓝色的，布尔类型也是蓝色的</font>，<font color="gray">undefined和null是灰色的</font></li>
+</ul>
+<blockquote>
+<h3>转换成字符串类型</h3>
+</blockquote>
+<ol>
+<li>value+&quot;&quot;; <font color="gray">//隐式转换，在数据的最后面加上空字符串</font></li>
+<li>value.toString(); <font color="gray">//<b>undefined和null没有toString()方法</b>(Uncaught TypeError: Cannot read property 'toString' of undefined)</font></li>
+<li>String(value);</li>
+</ol>
+<blockquote>
+<h3>转换成数值类型</h3>
+</blockquote>
+<ol>
+<li>
+<p>Number(value);</p>
+<pre><code>会先从整体上查看一下这个字符串是否是一个合法的数字
+a)如果是数字值，返回自身
+b)如果字符串中包含有效的浮点格式，将其转换为浮点数值
+c)如果是空字符串，将其转换为0
+d)如果字符串中包含非以上格式，则将其转换为NaN
+</code></pre>
+
+</li>
+<li>
+<p>parseInt(value);</p>
+<pre><code>会逐个字符进行转换，直到遇到非数字结束
+a)忽略字符串前面的空格，直到找到第一个非空字符，还会将数字后面的非数字的字符串去掉
+b)如果第一个字符不是数字符号或者负号，返回NaN
+c)如果第一个字符是数字，则继续解析直到字符串解析完毕或者遇到一个非数字符号为止
+d)如果是小数，会转成整数（向下取整）
+</code></pre>
+
+</li>
+<li>
+<p>parseFloat(value); <font color="gray">//与parseInt一样，唯一的区别是parseFloat<b>会保留小数位</b></font></p>
+</li>
+<li>value-0, value*1, value/1, value%1等运算 <font color="gray">//让字符串和数字做<b>除了加法</b>以外的运算</font></li>
+<li>
+<p>+value, -value <font color="gray">//转换成 正/负 数</font></p>
+<pre><code>隐式转换
+var b = +a; //相当于b = Number(a);
+</code></pre>
+
+</li>
+</ol>
+<blockquote>
+<h3>转换成布尔类型</h3>
+</blockquote>
+<ol>
+<li>Boolean(value);</li>
+<li>
+<p>!!value</p>
+<pre><code>隐式转换
+var b = !!a; //相当于b = Boolean(a);
+</code></pre>
+
+</li>
+</ol>
+<blockquote>
+<h3>自增，自减运算符</h3>
+</blockquote>
+<ul>
+<li>++a <font color="gray">//先自增，再运算</font></li>
+<li>a++ <font color="gray">//先运算，再自增</font></li>
+<li>--a <font color="gray">//先自减，再运算</font></li>
+<li>a-- <font color="gray">//先运算，再自减</font></li>
+</ul>
+<blockquote>
+<h3>运算符的优先级</h3>
+</blockquote>
+<pre><code>1. () 优先级最高
+2. 一元运算符  ++   --   !
+3. 算数运算符  先*  /  %   后 +   -
+4. 关系运算符  &gt;   &gt;=   &lt;   &lt;=
+5. 相等运算符   ==   !=    ===    !==
+6. 逻辑运算符 先&amp;&amp;   后||   如果有!(非)先算!(非)
+</code></pre>
+
+<blockquote>
+<h3>比较运算符</h3>
+</blockquote>
+<ul>
+<li>== 比较的是内容</li>
+<li>=== 比较的是内容和类型</li>
+<li>!= 比较的是内容</li>
+<li>!==比较的是内容和类型</li>
+<li>&lt; //如果是数字和字符串进行比较运算，字符串会转换成为数字；<b>如果是两个字符串进行比较运算，它会按照字符出现的顺序来进行比较</b></li>
+</ul>
+<blockquote>
+<h3>逻辑运算的短路问题</h3>
+</blockquote>
+<ul>
+<li>
+<p>逻辑 &amp;&amp; 运算短路问题：在运算时只要遇到运算数是false，后面的运算就不再执行</p>
+<pre><code>var a = 1;
+//var m = a++; m = 1, a = 2;
+console.log(a++ &gt; 20 &amp;&amp; a++ &gt; 10); //false
+console.log(a); //2
+</code></pre>
+
+</li>
+<li>
+<p>逻辑 || 运算短路问题：在运算时只要遇到运算数是true，后面的运算就不再执行</p>
+<pre><code>var a = 1;
+//var m = a++; m = 1, a = 2;
+console.log(a++ &lt; 20 || a++ &gt; 10); //true
+console.log(a); //2
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3><font color="red">当短路问题遇到优先级问题，先考虑短路问题</font></h3>
+</blockquote>
+<pre><code>&lt;script&gt;
+    // var b = true &amp;&amp; true || false &amp;&amp; false;  //true || false --&gt;true
+
+    var a = 1, b = 2, c = 3, d = 4;
+    //a++ ==1, --b ==1 ==&gt;a=2,b=1
+    //c++ ==3, --d ==3 ==&gt;c=4,d=3
+    //a++ ==2, d++ ==3 ==&gt;a=3,d=4
+    //b++ ==1, --c ==3 ==&gt;b=2,c=3
+    //a=3,b=2,c=3,d=4
+    //var e = ((a++ == --b) &amp;&amp; (c++ == --d)) || ((a++ &gt; d++) &amp;&amp; (b++ &gt; --c));
+    var e = (a++ == --b) &amp;&amp; (c++ == --d) || (a++ &gt; d++) &amp;&amp; (b++ &gt; --c);
+    console.log(a); //2
+    console.log(b); //1
+    console.log(c); //4
+    console.log(d); //3
+    console.log(e); //true
+&lt;/script&gt;
+</code></pre>
+
+<blockquote>
+<h3>逻辑运算的取值</h3>
+</blockquote>
+<ul>
+<li>
+<p>逻辑或运算取第一个为true的值</p>
+<pre><code>console.log(0 || undefined || 8 || &quot;Hello&quot; || false); //8
+</code></pre>
+
+</li>
+<li>
+<p>如果所有的值都为false，取最后一个值</p>
+<pre><code>console.log(0 || undefined || false || null || &quot;&quot; || NaN); //NaN
+</code></pre>
+
+</li>
+<li>
+<p>逻辑与运算取第一个为false的值</p>
+<pre><code>console.log(8 &amp;&amp; &quot;Hello&quot; &amp;&amp; 0 &amp;&amp; null &amp;&amp; false); //0
+</code></pre>
+
+</li>
+<li>
+<p>如果所有的值都为true，取最后一个值</p>
+<pre><code>console.log(8 &amp;&amp; &quot;Hello&quot; &amp;&amp; 12 &amp;&amp; true &amp;&amp; &quot;张三&quot;); //张三
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>Array 对象方法</h3>
+</blockquote>
+<table width="810px" cellspacing="0px" style="background-color: #ccc;border-collapse: collapse">
+<thead>
+<tr style="background-color: #3F3F3F;color: white;height: 25px;">
+ <th style="background-color: #3F3F3F;text-align: left;border: 1px solid #3F3F3F;">方法</th>
+ <th style="background-color: #3F3F3F;text-align: left;border: 1px solid #3F3F3F;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">concat()</td>
+<td>连接两个或更多的数组，并返回结果。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">join(separator)</td>
+<td>把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">pop()</td>
+<td>删除并返回数组的最后一个元素</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">push()</td>
+<td>向数组的<font color="red">末尾添加</font>一个或更多元素，并<font color="red">返回新的长度</font>。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">reverse()</td>
+<td>颠倒数组中元素的顺序。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">shift()</td>
+<td>删除并返回数组的第一个元素</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">slice(start,end)</td>
+<td>从某个已有的数组返回选定的元素。可使用负值从数组的尾部选取元素。<b>包含开始的下标(start)，不包含结束的下标(end)</b>。不会改变原有数组的数据</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">sort(sortby)</td>
+<td>对数组的元素进行排序</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">splice(index,howmany,item1..itemX)</td>
+<td>删除元素，并向数组添加新元素。会改变原始数组。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">toSource()</td>
+<td>返回该对象的源代码。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">toString()</td>
+<td>把数组转换为字符串，并返回结果。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">toLocaleString()</td>
+<td>把数组转换为本地数组，并返回结果。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">unshift()</td>
+<td>向数组的<font color="red">开头添加</font>一个或更多元素，并<font color="red">返回新的长度</font>。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">valueOf()</td>
+<td>返回数组对象的原始值</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<h3>Math对象中常用的方法</h3>
+</blockquote>
+<table width="810px" cellspacing="0px" style="background-color: #ccc;border-collapse: collapse">
+<thead>
+<tr style="background-color: #3F3F3F;color: white;height: 25px;">
+ <th style="background-color: #3F3F3F;text-align: left;border: 1px solid #3F3F3F;">方法</th>
+ <th style="background-color: #3F3F3F;text-align: left;border: 1px solid #3F3F3F;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">Math.pow(x,y)</td>
+<td>返回 x 的 y 次幂。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">Math.exp(x)</td>
+<td>返回 e 的指数。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">Math.round(x)</td>
+<td>把数四舍五入为最接近的整数。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">Math.abs(x)</td>
+<td>返回数的绝对值。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">Math.ceil(x)</td>
+<td>对数进行上舍入。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">Math.floor(x)</td>
+<td>对数进行下舍入。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">Math.max(x,y,z)</td>
+<td>返回 x,y,z 中的最高值。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">Math.min(x,y,z)</td>
+<td>返回 x,y,z 中的最低值。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">Math.random()</td>
+<td>返回 0 ~ 1 之间的随机数。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">Math.sqrt(x)</td>
+<td>返回数的平方根。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">Math.pow(x,1/3)</td>
+<td>返回数的立方根。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">Math.sin(x)</td>
+<td>返回数的正弦。<font color="red">参数是弧度，而不是角度。PI弧度 = 180角度</font></td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">Math.cos(x)</td>
+<td>返回数的余弦。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">Math.tan(x)</td>
+<td>返回角的正切。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">Math.log(x)</td>
+<td>返回数的自然对数（底为e）。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">Math.log(x)/Math.LN10</td>
+<td>返回以10为底x的对数。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">Math.log(x)/Math.LN2</td>
+<td>返回以2为底x的对数。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">Math.E</td>
+<td>返回算术常量 e，即自然对数的底数（约等于2.718）。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">Math.LN2</td>
+<td>返回 2 的自然对数（约等于0.693）。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">Math.LN10</td>
+<td>返回 10 的自然对数（约等于2.302）。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">Math.LOG2E</td>
+<td>返回以 2 为底的 e 的对数（约等于 1.414）。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">Math.LOG10E</td>
+<td>返回以 10 为底的 e 的对数（约等于0.434）。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">Math.PI</td>
+<td>返回圆周率（约等于3.14159）。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">Math.SQRT1_2</td>
+<td>返回 2 的平方根的倒数（约等于 0.707）。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">Math.SQRT2</td>
+<td>返回 2 的平方根（约等于 1.414）。</td>
+</tr>
+
+<tr style="background-color: #F5F5F5;">
+<td style="color: #900b09;letter-spacing: 1px;">Math.toSource()</td>
+<td>返回该对象的源代码。</td>
+</tr>
+
+<tr>
+<td style="color: #900b09;letter-spacing: 1px;">Math.valueOf()</td>
+<td>返回 Math 对象的原始值。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<h3>Date对象</h3>
+</blockquote>
+<ul>
+<li>
+<p>创建一个日期对象</p>
+<pre><code>var date = new Date();//使用构造函数创建一个当前时间的对象
+var date = new Date(&quot;2017-03-22&quot;);//创建一个指定时间的日期对象
+var date = new Date(&quot;2017-03-22 00:52:34&quot;);//创建一个指定时间的日期对象
+</code></pre>
+
+</li>
+<li>
+<p>获取日期的指定部分</p>
+<pre><code>getSeconds(); //获取秒
+getMinutes(); //获取分钟
+getHours(); //获取小时
+getDay(); //获取星期，0-6    0：星期天
+getDate(); //获取日，即当月的第几天
+getMonth(); //返回月份，注意从0开始计算，取值范围0-11，即获取到的值要在真实的月份上减1
+getFullYear(); //返回4位的年份  如：2017
+getYear(); //将返回的实际年份减去1900年。例如：2016年返回116
+</code></pre>
+
+</li>
+<li>
+<p>时间戳</p>
+<pre><code>var date = +new Date(); //1970年01月01日00时00分00秒起至现在的总毫秒数
+//获取一段代码的执行时间
+var start = +new Date();
+for (var i = 0; i &lt;= 10000; i++) {
+    console.log(i);
+}
+var end = new Date();
+
+console.log(&quot;代码执行的时长是&quot; + (end - start) + &quot;毫秒&quot;);
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>Array对象</h3>
+</blockquote>
+<ul>
+<li>
+<p>数组判断</p>
+<pre><code>//语法：Array.isArray(obj)
+//作用：用来判断一个对象是否是一个数组
+var a = 100;
+var b = true;
+var c = [1,2,3,4,5,6];
+console.log(Array.isArray(a));   //false
+console.log(Array.isArray(b));   //false
+console.log(Array.isArray(c));   //true
+</code></pre>
+
+</li>
+<li>
+<p>数组的增删操作</p>
+<pre><code>var arr = [12,3,4,7];
+
+//shift方法会从数组的最前面删除元素，返回删除的那个元素
+console.log(arr.shift());  //12
+console.log(arr);  //3,4,7
+
+//pop方法会从数组的最后面删除元素，返回删除的那个元素
+console.log(arr.pop());  //7
+console.log(arr);  //3,4
+
+//unshift方法会从数组的最前面添加元素，返回新数组的长度
+console.log(arr.unshift(&quot;Hello&quot;,89,true)); //7
+console.log(arr); //&quot;Hello&quot;,89,true,12,3,4,7
+
+//push方法会从数组的最后面添加元素，返回新数组的长度
+console.log(arr.push(100, 200, 250)); //7
+console.log(arr); //12,3,4,7,100, 200, 250
+</code></pre>
+
+</li>
+<li>
+<p>数组的翻转与排序</p>
+<pre><code>var arr = [23, 90, 78, 45, 120, 34, 5];
+
+//reverse方法，可以将一个数组翻转，同时返回翻转后的数组，该方法会改变原来的数组
+arr.reverse();
+console.log(arr); //5, 34, 120, 45, 78, 90, 23
+
+//sort方法可以传递一个函数作为参数，这个参数用来控制数组如何进行排序
+//如果不传入比较函数，会把数组里的元素当作字符串，按照字母出现的顺序进行排序
+arr.sort(); //120, 23, 34, 45, 5, 78, 90
+
+arr.sort(function(a,b){
+    //console.log(&quot;a = &quot; + a + &quot;,b = &quot; + b);
+
+    // a - b 如果大于0，a和b就交换位置
+    // a - b 如果小于0，a和b就不交换位置
+    // return a - b;  //如果返回值是 a - b,升序
+
+    // b - a 如果大于0，a和b就交换位置
+    // b - a 如果小于0，a和b就不交换位置
+    return b - a;  //如果是b - a,降序
+});
+console.log(arr);
+</code></pre>
+
+</li>
+<li>
+<p>利用 <b>splice</b> 方法添加元素</p>
+<pre><code>//splice:数组拼接，以新元素来替换旧元素，以此来修改数组的内容，常用于删除数组的某些项
+//start:开始位置  deleteCount:删除的个数  items:替换的内容
+//array.splice(start, deleteCount, [items]);
+
+var arr = [3,4,5,100,200,400,35,9];
+//在数组第5个元素前面，删除0个，再插入一个元素250
+arr.splice(5,0,250);
+console.log(arr); //3, 4, 5, 100, 200, 250, 400, 35, 9
+</code></pre>
+
+</li>
+<li>
+<p>利用 <b>indexOf</b> 方法在数组里查找元素</p>
+<pre><code>var arr = [23, 89, 57, 63, 12, 57, 87];
+
+//indexOf方法用来查找数组中某个元素第一次出现的位置，如果找不到，返回-1
+//array.indexOf(search, [fromIndex]);
+var index = arr.indexOf(57);
+console.log(index); //2
+index = arr.indexOf(100);
+console.log(index); //-1
+
+//lastIndexOf()从后面开始查找数组中元素出现位置,如果找不到，返回-1
+//array.lastIndexOf(search, [fromIndex]);
+index = arr.lastIndexOf(57);
+console.log(index); //5
+
+//数组去重，返回一个新数组
+var newArr = [];
+for (var i = 0; i &lt; arr.length; i++) {
+    if(newArr.indexOf(arr[i]) == -1){
+      newArr.push(arr[i]);
+    }
+}
+console.log(newArr);
+
+//获取数组中每个元素出现的次数
+var arr = [&quot;c&quot;, &quot;a&quot;, &quot;z&quot;, &quot;a&quot;, &quot;x&quot;, &quot;a&quot;, &quot;a&quot;, &quot;z&quot;, &quot;c&quot;, &quot;x&quot;, &quot;a&quot;, &quot;x&quot;]
+var obj = {};
+for(var i = 0; i &lt; arr.length; i++){
+    var element = arr[i];
+    if(obj[element] == undefined){
+      obj[element] = 1;
+    }else{
+      obj[element] ++;
+    }
+}
+console.log(obj);
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>操作数组里的元素</h3>
+</blockquote>
+<ul>
+<li>
+<p><b>filter()</b> 方法</p>
+<pre><code>//filter方法返回一个由符合函数要求的元素组成的新数组
+var arr = [12,34,56,89,78,23,45,19];
+//调用数组的filter方法，添加过滤方法，符合规则的元素会被存放到新数组里
+//element:表示数组里的元素;index:表示索引值;array:表示调用filter方法的数组。
+var newArr = arr.filter(function(element,index,array){
+  return element &gt; 30;
+});
+console.log(arr);  //filter方法不会改变原数组里的数据[12,34,56,89,78,23,45,19];
+console.log(newArr);  //新数组里保存符合要求的元素[34, 56, 89, 78, 45]
+</code></pre>
+
+</li>
+<li>
+<p><b>map()</b> 方法</p>
+<pre><code>//map方法让数组中的每个元素都调用一次提供的函数，将调用的后的结果存放到一个新数组里并返回。
+newArr = arr.map(function(element,index,array){
+  //在数组里的每一个元素的最后面都添加一个字符串&quot;0&quot;
+  return element + &quot;0&quot;;
+});
+console.log(newArr);  //[&quot;120&quot;, &quot;340&quot;, &quot;560&quot;, &quot;890&quot;, &quot;780&quot;, &quot;230&quot;, &quot;450&quot;, &quot;190&quot;]
+console.log(arr);    //map方法不会改变原数组里的数据 [12,34,56,89,78,23,45,19]
+</code></pre>
+
+</li>
+<li>
+<p><b>forEach()</b> 方法</p>
+<pre><code>//forEach() 方法对数组的每个元素执行一次提供的函数,且这个函数没有返回值
+var result = arr.forEach(function (element, index, array) {
+  //数组里的每一个元素都会被打印
+  console.log(&quot;第&quot; + index + &quot;个元素是&quot; + element);
+});
+console.log(result);   //函数没有返回值
+</code></pre>
+
+</li>
+<li>
+<p><b>some()</b> 方法</p>
+<pre><code>//some() 方法测试数组中的某些元素是否通过由提供的函数实现的测试
+var arr = [12,34,56,89,78,23,45,19];
+result =  arr.some(function (element,index,array) {
+  //数组里否有一些元素大于50.只要有一个元素大于，就返回true
+  console.log(element); //12,34,56
+  return element &gt; 50;
+});
+console.log(result);  //true
+</code></pre>
+
+</li>
+<li>
+<p><b>every()</b> 方法</p>
+<pre><code>//every() 方法测试数组的所有元素是否都通过了指定函数的测试
+var arr = [12,34,56,89,78,23,45,19];
+result =  arr.every(function (element,index,array) {
+  //数组里是否每一个元素都大于50.只有在所有的数都大于50时，才返回true
+  console.log(element);  //12 第0个数字就已经小于50了，就没有再比较的意义了
+  return element &gt; 50;
+});
+console.log(result);   //false
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>清空数组</h3>
+</blockquote>
+<ol>
+<li>array.splice(0,array.length); <font color="gray">//删除数组中所有的元素</font></li>
+<li>array.length = 0; <font color="gray">//直接修改数组的长度</font></li>
+<li>array = []; <font color="gray">//将数组赋值为一个空数组，推荐</font></li>
+</ol>
+<blockquote>
+<h3>String对象</h3>
+</blockquote>
+<ul>
+<li>字符串可以看成是一个字符数组。因此字符串也有长度，也可以进行遍历。</li>
+<li>
+<p>查找指定字符串 (<font color="red">所有的字符串都包含空字符串</font>)</p>
+<pre><code>indexOf:获取某个字符串第一次出现的位置，如果没有，返回-1
+lastIndexOf:从后面开始查找第一次出现的位置。如果没有，返回-1
+</code></pre>
+
+</li>
+<li>
+<p><b>去除空白</b></p>
+<pre><code>trim(); //去除字符串两边的空格，内部空格不会去除
+</code></pre>
+
+</li>
+<li>
+<p>大小写转换</p>
+<pre><code>toUpperCase()：全部转换成大写字母
+toLowerCase()：全部转换成小写字母
+</code></pre>
+
+</li>
+<li>
+<p>字符串拼接与截取</p>
+<pre><code>字符串拼接，可以用concat()，用法与数组一样，但是字符串拼串我们一般都用+
+
+字符串截取
+slice()：从start开始，end结束，并且取不到end。
+subString()：从start开始，end结束，并且取不到end
+substr()：从start开始，截取length个字符。(推荐)
+</code></pre>
+
+</li>
+<li>
+<p><b><font color="red">字符串切割</font></b></p>
+<pre><code>//split:将字符串分割成数组（很常用）
+//功能和数组的join正好相反。join 是将数组转换成为字符串;split方法是将字符串转换成为数组
+str = &quot;1_2_Hello_true_4_Hi&quot;;
+var splitArr = str.split(&quot;_&quot;);
+</code></pre>
+
+</li>
+<li>
+<p>字符串替换</p>
+<pre><code>//replace(searchValue, replaceValue),参数：searchValue:需要替换的值,replaceValue:用来替换的值
+str = &quot;  a b  co e f ox y o zz op p   &quot;;
+//把字符串中所有的o替换成!
+console.log(str.replace(/o/g, &quot;!&quot;));   //正则表达式
+//把一个字符串中所有的空格全部去掉
+console.log(str.replace(/ /g, &quot;&quot;));
+</code></pre>
+
+</li>
+<li>
+<p>当以url的形式（url?param=value）传递参数时，如果传递的是中文字符串那么在接收的时候是乱码形式。</p>
+<pre><code>//decodeURI() 函数解码一个由encodeURI 先前创建的统一资源标识符（URI）或类似的例程。
+encodeURI(value)：将value转换成utf-8，
+decodeURI(value)：将utf-8的value反转成字符串。
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>基本包装类型</h3>
+</blockquote>
+<ul>
+<li>简单数据类型是没有方法的。为了方便操作基本数据类型，JavaScript还提供了三个特殊的引用类型：String/Number/Boolean。</li>
+<li>
+<p>基本包装类型：把基本类型包装成复杂类型。</p>
+<pre><code>var str = “abc”;
+var result = str.indexOf(“a”);
+//发生了三件事情
+1. 把简单类型转换成复杂类型：var s = new String(str);
+2. 调用包装类型的indexOf方法：var result = s.indexOf(“a”);
+3. 销毁刚刚创建的复杂类型
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>关于函数</h3>
+</blockquote>
+<ul>
+<li>函数三要素：函数名、参数、返回值</li>
+<li>在JS里，只要函数名一样，就是同一个函数，JS不允许函数重载</li>
+<li>如果两个函数的函数名一样，后一个函数会覆盖前一个函数</li>
+<li><b>在函数调用过程中，如果实参的个数多于形参的个数，多余的实参会被“舍弃”掉</b></li>
+<li>
+<p><b>如果实参的个数少于形参的个数，不足的参数默认值是undefined</b></p>
+<pre><code>function test() {
+    console.log(&quot;This function will be covered!&quot;);
+}
+//函数test(str)将覆盖test()
+function test(str) {
+    console.log(str);
+}
+test(&quot;printing&quot;, &quot;ignored&quot;); //printing
+test(); //undefined
+
+function tellStory(){
+    console.log(&quot;Once upon a time, there was a mountain&quot;);
+    return;  //函数只有一个return关键字,表示语句的结束，相当于return undefined
+}
+var result = tellStory();
+console.log(result);  //undefined
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>变量的作用域</h3>
+</blockquote>
+<ul>
+<li>JavaScript中没有块级作用域</li>
+<li>隐式全局变量：<b>没有使用var声明的变量是全局变量</b></li>
+<li>当变量超出作用域之后，变量会被销毁</li>
+<li>在函数中，只有全局作用域和函数作用域。<font color="red">在if、while、for等语句中用<b>var</b>关键字定义的变量都是全局变量。</font></li>
+</ul>
+<blockquote>
+<h3>预解析</h3>
+</blockquote>
+<ul>
+<li>JS解析器在执行JS代码的时候，分为两个过程：预解析过程和代码执行过程。</li>
+<li>
+<p>预解析过程：</p>
+<ol>
+<li>把变量的声明提升到当前作用域的最前面，只会提升声明，不会提升赋值。</li>
+<li>把函数的声明提升到当前作用域的最前面，只会提升声明，不会提升调用。</li>
+<li>
+<p>先提升var,再提升function</p>
+<pre><code>//var a;  --&gt;变量a
+//function a;  --&gt;函数a
+console.log(a);  //a代表的是函数
+function a() {
+    console.log(&quot;I'm function&quot;);
+}
+var a = 1;
+console.log(a); //1
+//a是一个变量，不是一个函数
+a(); //Uncaught TypeError: a is not a function
+</code></pre>
+
+</li>
+</ol>
+</li>
+<li>
+<p>变量提升的时候特殊情况的处理</p>
+<ol>
+<li>
+<p><font color="red">当函数和变量同名的时候，只会提升函数，忽略掉变量的声明</font></p>
+<pre><code>func(); //我是一个小函数
+function func(){
+    console.log(&quot;我是一个小函数&quot;);
+}
+var func = 10;
+
+//预解析后的代码
+function func(){
+    console.log(&quot;我是一个小函数&quot;);
+}
+func();
+func = 10;
+--------------------------------
+var func = 10;
+function func(){
+    console.log(1);
+}
+func(); //Uncaught TypeError: func is not a function
+
+//预解析后的代码
+function func(){
+    console.log(1);
+}
+func = 10;
+func();
+</code></pre>
+
+</li>
+<li>
+<p><font color="red">当函数和函数同名的时候，都会提升，但是后面的函数会把前面的给覆盖掉</font></p>
+<pre><code>test(); // second test
+function test(){
+    console.log(&quot;first test&quot;)
+}
+function test(){
+    console.log(&quot;second test&quot;)
+}
+</code></pre>
+
+</li>
+<li>
+<p>函数表达式只会提升变量名，不提升后面的函数表达式</p>
+<pre><code>test();
+var test = function(){}
+//提升后的代码
+var test;
+test();
+test = function(){}
+</code></pre>
+
+</li>
+<li>
+<p><font color="red">条件式函数声明，在条件判断语句中声明的函数，就是条件式函数声明。条件式函数声明在提升的时候，只会提升函数名，函数体不会被提升。</font></p>
+<pre><code>console.log(test);
+if(true){
+    function test(){
+        console.log(&quot;123&quot;);
+    }
+}
+//先将其转换
+console.log(test);
+if(true){
+    var test = function (){
+        console.log(&quot;123&quot;);
+    }
+}
+//后做提升
+var test;
+console.log(test)
+if(true){
+    test = function (){
+        console.log(&quot;123&quot;);
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>函数形参在预解析中的情况分析:函数中的形参相当于在函数中声明了一个变量，<strong>这个变量会在函数调用的时候赋值</strong>。这个形参变量的声明以及赋值的过程不参与预解析，也就是说它永远在最前面。</p>
+<pre><code>(function(a){
+    console.log(a);
+    var a = 10;
+    function a(){}
+})(100);
+// 提升后的代码
+(function(a){
+    //var a = 100
+    function a(){}
+    console.log(a); // function a
+    var a = 10; 
+})(100);
+</code></pre>
+
+</li>
+<li>
+<p>变量提升是分script标签的。当前script标签中的内容，只会被提升到当前script标签的最顶上。</p>
+<pre><code>&lt;script&gt;
+    test(); //Uncaught ReferenceError: test is not defined
+&lt;/script&gt;
+&lt;script&gt;
+    function test(){
+        console.log(&quot;test&quot;);
+    }
+&lt;/script&gt;
+</code></pre>
+
+</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<h3>声明函数的几种方式</h3>
+</blockquote>
+<ol>
+<li>
+<p>（命名函数）</p>
+<pre><code>function 函数名(){
+  //函数体
+}
+</code></pre>
+
+</li>
+<li>
+<p>函数表达式(匿名函数)</p>
+<pre><code>var 函数名 = function(){
+  //函数体
+}
+</code></pre>
+
+<ul>
+<li>
+这两种函数的区别：
+<ol>
+<li>命名函数可以在声明之前调用，因为预解析时，会先把函数的声明给解析出来。</li>
+<li><font color="red">匿名函数的调用必须要放在声明之后</font>，因为预解析时，只会声明变量，不会给变量赋值！（DOM注册事件）</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Function：Function可以看做是js中所有函数对象的构造函数</p>
+<pre><code>var 函数名 = new Function();
+</code></pre>
+
+</li>
+</ol>
+<blockquote>
+<h3>操作对象的属性</h3>
+</blockquote>
+<ul>
+<li>
+<p><font color="red">如果使用一个 变量 来获取对象里的属性时，必须要使用 [] 语法。</font></p>
+<pre><code>function Student(name,age){
+  this.name = name;
+  this.age = age;
+}
+var stu = new Student(&quot;张三&quot;,18);
+var tmp = &quot;name&quot;;
+var name = stu.tmp;   //在stu对象里找tmp属性,获取的属性不存在，返回值是undefined
+name = stu[tmp];     //张三，这里的tmp是一个变量，它指的是&quot;name&quot;字符串
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>遍历对象</h3>
+</blockquote>
+<ul>
+<li>
+<p>使用<font color="red">for...in</font>循环可以遍历一个对象里的数据</p>
+<pre><code>var student = {&quot;name&quot;:&quot;Tom&quot;,&quot;age&quot;:18,&quot;sex&quot;:&quot;male&quot;};
+for(var key in student){
+  console.log(student[key]);
+}
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3><font color="red">arguments对象</font></h3>
+</blockquote>
+<ol>
+<li>JavaScript中，arguments对象是比较特殊的一个对象，实际上是当前函数的一个内置属性。</li>
+<li><strong>当函数被调用的时候，所有传入的实参，都会存入到arugments对象中</strong>。无论函数是否有形参，arugments对象都能够接收到调用的时候传入的实参。</li>
+<li><strong>形参的内容和arugments的内容是绑定的，修改其中任意一个，对应的另外一个也会发生改变</strong>。</li>
+<li>arguments是一个伪数组，因此可以对它进行遍历。</li>
+<li>arguments.length 可以用来表示传入的实参的个数。</li>
+<li>
+<p>callee 指的就是arguments对象所在的函数本身，通常用来实现递归。</p>
+<pre><code>function getSum(a, b) {
+    var sum = 0;
+    for (var i = 0; i &lt; arguments.length; i++) {
+      sum += arguments[i];
+    }
+    return sum;
+}
+console.log(getSum(1, 2, 3, 4));  //10
+
+// 形参的内容和arugments的内容是绑定的，修改其中任意一个，对应的另外一个也会发生改变
+function test(a, b, c){
+    console.log(a); //1
+    a = 10;
+    console.log(arguments[0]) //10
+    arguments[0] = 100;
+    console.log(a); //100
+    console.log(arguments.callee); //test函数
+}
+test(1, 2, 3);
+
+// 利用 callee 来实现递归
+function test(){
+    arguments.callee(); // 等价于test()
+}
+test();
+
+// 利用 arguments.length 在JS中实现函数重载
+// 例：实现传入函数参数不同，功能不同
+function test(){
+    // 判断传入的实参的个数
+    if(arguments.length == 1){
+        return arguments[0] * arguments[0];
+    }else{
+        return Math.pow(arguments[0], arguments[1]);
+    }
+}
+</code></pre>
+
+</li>
+</ol>
+<blockquote>
+<h3>delete操作符</h3>
+</blockquote>
+<ul>
+<li>var声明的全局变量不允许删除</li>
+<li>DOTDELETE标识的属性不允许删除</li>
+<li>
+<p>原型链里的属性不允许删除</p>
+<pre><code>var student = {
+    name : &quot;张三&quot;,
+    age : 18
+};
+//删除了一个student对象的name属性  
+console.log(delete student.name); //true 代表删除成功
+var num = 14;
+console.log(delete num);  //false
+str = &quot;Hello&quot;;
+console.log(delete str);  //true
+console.log(delete arguments);  //false
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>json对象</h3>
+</blockquote>
+<ul>
+<li>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式，采用完全独立于语言的文本格式，是理想的数据交换格式。同时，JSON是 JavaScript 原生格式，这意味着在 JavaScript 中处理 JSON数据跟处理对象是一样的。</li>
+<li>
+<p><font color="red">JSON的属性必须用双引号包裹，而对于JS对象的属性名来说，括号可以省略。</font></p>
+<pre><code>//对于js对象来说，属性名的双引号是可以省略的。
+var obj = {
+  name:&quot;zs&quot;,
+  age:18,
+  sex:&quot;男&quot;
+}
+
+//json对象的属性名必须使用双引号括起来
+var obj = {
+  &quot;name&quot;:&quot;zs&quot;,
+  &quot;age&quot;:18,
+  &quot;sex&quot;:&quot;男&quot;
+}
+
+//在js中，其实就可以把json当成javascript的对象，因此操作也是一样的。
+</code></pre>
+
+</li>
+</ul>
+<blockquote>
+<h3>交换两个数的几种方法</h3>
+</blockquote>
+<pre><code>var a = 5, b = 8;
+//1.定义一个中间量c
+var c;
+c = a; //c=5 , a=5
+a = b; //a=8 , b=8
+b = c; //b=5
+
+//2.利用a+b
+a += b; //a=13 , b=8
+b = a - b; //b=5
+a -= b; //a=8
+
+//3.利用数组形式交换数据
+a = [b, b = a][0];
+console.log(&quot;a =&quot; + a + &quot;,b=&quot; + b); //a=8,b=5
+</code></pre>
+
+<blockquote>
+<h3>设置一个自定义属性</h3>
+</blockquote>
+<pre><code>nav.setAttribute('data-demo','king');
+</code></pre>
+
+<blockquote>
+<h3>HTML5提供了一个对象dataset，可以获取所有的自定义属性(读取/设置)</h3>
+</blockquote>
+<pre><code>var customData = nav.dataset;
+console.log(customData.name);
+</code></pre>
+
+<blockquote>
+<h3>字面量定义，表达式</h3>
+</blockquote>
+<pre><code>var fn = function(){
+    alert(value);
+}();
+</code></pre>
+
+<blockquote>
+<h3>以关键字定义函数</h3>
+</blockquote>
+<pre><code>function fn(){
+    alert(value);
+}
+fn();
+</code></pre>
+
+<blockquote>
+<h3>（函数优化）表面上看是以关键字来定义的，但是加括号后返回的是一个表达式形式</h3>
+</blockquote>
+<pre><code>(function (key){
+    alert(key);
+})(value);
+</code></pre>
+
+<div style="width:960px;text-align:center;">
+Copyright&copy; 2017 <a style="text-decoration: none;color: #FF0066;" href="https://www.facebook.com/KINGMUIHK" target="_blank">KINGMUI</a> All Rights Reserved
+<br />
+Updated on August 29, 2017
+</div>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
